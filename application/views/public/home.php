@@ -18,7 +18,7 @@
         <div class="col-lg-4 mb-4 w-100">
                 <div class="card rounded-0 shadow-sm border-0">
                     <div class="card-body">
-                        <a href="<?= base_url('home/product/').$item->id; ?>" class="stretched-link text-info">
+                        <a href="<?= base_url('home/category/6'); ?>" class="stretched-link text-info">
                             <h2 class="h5 text-dark">Up to 60% off | Electronics & accessories</h2>
                         </a>
                     </div>
@@ -30,7 +30,7 @@
         <div class="col-lg-4 mb-4 w-100">
                 <div class="card rounded-0 shadow-sm border-0">
                     <div class="card-body">
-                        <a href="<?= base_url('home/product/').$item->id; ?>" class="stretched-link text-info">
+                        <a href="<?= base_url('home/category/'); ?>" class="stretched-link text-info">
                             <h2 class="h5 text-dark">Clothing & Fashion | up to 80% off</h2>
                         </a>
                     </div>
@@ -57,7 +57,7 @@
                         <h2 class="lead text-truncate"><?= $item->title; ?></h2>
                     </a>
                     <p class="small"><?= $item->category; ?> </p>
-                    <h2 class="h6 "><del>₹ <?= $item->price; ?></del> <span class="ml-4 text-success">₹ <?= $item->discount_price; ?></span></h2>
+                    <h2 class="h6 d-flex"><del class="small">₹ <?= $item->price; ?></del> <span class="ml-3 text-success"><h5>₹ <?= $item->discount_price; ?></h5></span></h2>
                 </div>
             </div>
         </div>

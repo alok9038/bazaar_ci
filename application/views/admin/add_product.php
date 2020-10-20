@@ -56,6 +56,12 @@
                         <?= form_error('description'); ?>
                     </div>
                     <div class="form-group">
+                        <label for="">Summary</label>
+                        <textarea name="summary" class="form-control"  id="" cols="30" rows="10"><?= set_value('description'); ?></textarea>
+                        <?= form_error('description'); ?>
+                    </div>
+                    
+                    <div class="form-group">
                         <input type="submit" class="btn btn-info btn-block" name="send"> 
                     </div>
                     </form>

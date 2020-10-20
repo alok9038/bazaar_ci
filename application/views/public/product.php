@@ -6,8 +6,8 @@
            <div class="container p-0 mt-4 ">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb rounded-0 bg-white shadow-sm">
-                    <li class="breadcrumb-item"><a href="<?= base_url('home/index'); ?>" class="text-dark">Home</a></li>
-                    <li class="breadcrumb-item"><a href="<?= base_url('home/category/'.$product['0']->category); ?>" class="text-dark"><?= $product['0']->category; ?></a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('home/index'); ?>" class="text-dark small">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('home/category/'.$product['0']->category); ?>" class="text-dark small"><?= $product['0']->category; ?></a></li>
                     <li class="breadcrumb-item active text-truncate small" aria-current="page"><?= $product['0']->title; ?></li>
                 </ol>
             </nav>

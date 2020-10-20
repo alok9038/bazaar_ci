@@ -50,6 +50,7 @@ class Admin extends CI_Controller{
         $this->form_validation->set_rules('model','model','required');
         $this->form_validation->set_rules('category','category','required');
         $this->form_validation->set_rules('description','description','required');
+        $this->form_validation->set_rules('summary','summary','required');
              
              if($this->form_validation->run()){
             $config['upload_path']          = './assets/upload/';
@@ -71,6 +72,7 @@ class Admin extends CI_Controller{
                      'category' => $_POST['category'],
                      'image' => $_FILES['image']['name'],
                      'description' => $_POST['description'],
+                     'summary' => $_POST['summary'],
                  ];
                  $this->db->insert("item",$data);
                  redirect('admin/addProduct');
