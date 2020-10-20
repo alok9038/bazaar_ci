@@ -9,7 +9,7 @@
 </head>
 <body class="">
     
-    <nav class="navbar navbar-expand-lg p-0 navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg p-0 sticky-top  navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="<?= base_url('home'); ?>"><img src="<?= base_url('assets/logo.png'); ?>" class="img-fluid" style="height:55px;" alt=""></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +56,7 @@
   </div>
   </div>
 </nav>
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm sticky-top py-0 bg-white">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm  py-0 bg-white">
     <div class="container">
         <ul class="navbar-nav category">
             <li class="nav-item"><a href="<?= base_url('home'); ?>" class="nav-link" style="font-weight:500;font-size:14px;">Home</a></li>

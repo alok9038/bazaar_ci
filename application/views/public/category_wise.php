@@ -7,7 +7,7 @@
 <?php if(!empty($product)): ?>
    <div class="col-lg-9">
        <?php foreach($product as $item): ?>
-    <div class="row mb-4 shadow-sm">
+    <div class="row mb-4 shadow-sm post">
         <div class="col-lg-4 p-4">
             <img src="<?= base_url('assets/upload/'.$item->image); ?>" class="img-fluid w-75" alt="" style="height:150px;">
         </div>
