@@ -41,6 +41,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <a href="" class="btn btn-success mt-4">Add to Cart</a>
                                     <div class="description mt-5">
                                         <h5 class="lead">Description</h5>
                                         <h6 class=" small text-muted"><?= $product['0']->description; ?></h6>

@@ -5,7 +5,9 @@ class Home extends CI_Controller{
     private $data;
     public function __construct(){
         parent::__construct();
+        $id = $this->session->userdata('admin');
         $this->data['category'] = $this->work->calling('category');
+        $this->data['user'] = $this->db->where(["contact="=>$id])->get("account")->row();
         
     }
     

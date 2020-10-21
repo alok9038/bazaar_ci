@@ -53,9 +53,29 @@
     clear: both;
 }
 @media (max-width: 768px) {
-  body {
-    background-color: #02181f!important;
+  .head-2{
+    position:-webkit-sticky;position:sticky;top:0;z-index:1020;
   }
+  .navbar .navbar-nav .nav-item a{
+      padding-left:40px ;
+      
+  }
+  .navbar .form-inline .search{
+      width: 200px!important;
+      margin-left: auto!important;
+      margin-right: auto!important;
+  }
+  .navbar .navbar-nav .nav-item:hover{
+    background-color:gray;
+    
+}
+
+ .post-item-image{
+     object-fit: cover!important;
+     height: 100%!important;
+     width: 100%!important;
+ }
+
 }
 .post{
     transition:all .4s linear;
@@ -63,3 +83,8 @@
 .post:hover{
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
+
+.head-1{
+    visibility: hidden;
+}
+       

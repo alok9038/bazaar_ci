@@ -11,6 +11,19 @@ class Work extends CI_Model{
         }
         return $data->result();
     }
+    public function checkData($table,$cond){
+        $data = $this->db->where($cond)->get($table);
+
+        $result = $data->num_rows();
+        if($result > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+        return $data;
+
+    }
     
     
 }
