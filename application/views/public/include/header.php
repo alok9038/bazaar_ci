@@ -68,9 +68,9 @@
 <nav class="navbar navbar-expand-lg mb-5 sticky-top navbar-light  shadow-sm  py-0 bg-white" style="top:65px!important;">
     <div class="container">
         <ul class="nav-pills nav navbar-nav category" id="category">
-            <li class="nav-item"><a href="<?= base_url('home'); ?>" class="nav-link" style="font-weight:500;font-size:14px;">Home</a></li>
+            <li class="nav-item rounded-0"><a href="<?= base_url('home'); ?>" class="nav-link rounded-0" style="font-weight:500;font-size:14px;">Home</a></li>
             <?php foreach($category as $cat): ?>
-            <li class="nav-item "><a href="<?= base_url('home/category/'.$cat->id); ?>" class="nav-link text-capitalize " style="font-weight:500; font-size:14px;"><?= $cat->title; ?></a></li>
+            <li class="nav-item rounded-0 "><a href="<?= base_url('home/category/'.$cat->id); ?>" class="nav-link rounded-0 text-capitalize " style="font-weight:500; font-size:14px;"><?= $cat->title; ?></a></li>
             <?php endforeach; ?>
         </ul>
     </div>

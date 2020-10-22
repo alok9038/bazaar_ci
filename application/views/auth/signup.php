@@ -3,7 +3,7 @@
         <div class="col-lg-5 mt-5 mx-auto">
             <div class="card border-0">
             <div class="card-body text-center">
-                <h4>Create a noon account</h4>
+                <h4>Create an account</h4>
                 <p class="small">Already have an account?<a href="<?= base_url('auth/login'); ?>" class="text-info">sign In</a></p>
                 <form action="<?= base_url('auth/signUp'); ?>" method="post">
                     <div class="form-group">
