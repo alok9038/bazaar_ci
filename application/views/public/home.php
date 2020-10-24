@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="container-fluid mt-sm-5 p-0">
 	<img src="<?= base_url('assets/banner.jpg'); ?>" class="banner w-100 img-fluid" alt="">
 	<div class="card-caption container px-5">
 		<div class="row mt-5 pt-5 mt-lg-0 pt-lg-0">
@@ -89,7 +89,7 @@
 						alt="<?= $item->title; ?>">
 				</div>
 				<div class="card-body">
-					<a href="<?= base_url('home/product/').$item->id; ?>" class="stretched-link text-info">
+					<a href="<?= base_url('home/product/').$item->id; ?>" class="stretched-link text-info" title="<?= $item->title; ?>">
 						<h2 class="lead text-truncate"><?= $item->title; ?></h2>
 					</a>
 					<span class="small"><?= $item->category; ?> </span><span class="badge badge-success ml-4">4.1</span>

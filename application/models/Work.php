@@ -24,7 +24,20 @@ class Work extends CI_Model{
         return $data;
 
     }
+
+    public function deleteData($table, $id){
+        $data = $this->db->delete($table,$id);
+        return $data;
+    }
+
+    public function joinData($table, $table2, $cond, $cond1){
+        $this->db->join($table2, $cond);
+        $this->db->where($cond1);
+        $data = $this->db->select('*')->from($table)->get()->result();
+        return $data;
+    }
     
+
     
 }
 

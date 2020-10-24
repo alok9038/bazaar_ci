@@ -5,11 +5,11 @@
 
 </style>
 <div class="container mt-5 pt-5">
-	<div class="row">
-		<?php if(!empty($product)): ?>
-		<div class="col-lg-9">
-			<?php foreach($product as $item): ?>
-			<div class="row mb-4 shadow-sm post">
+	<?php if(!empty($product)): ?>
+		<div class="row">
+			<div class="col-lg-9">
+				<?php foreach($product as $item): ?>
+					<div class="row mb-4 shadow-sm post">
 				<div class="col-lg-4 p-4">
 					<img src="<?= base_url('assets/upload/'.$item->image); ?>" class="img-fluid w-75" alt=""
 						style="height:150px;">
@@ -27,17 +27,7 @@
 			</div>
 
 			<?php endforeach; ?>
-			<?php  else: ?>
-
-			<div class="row">
-				<div class="col-lg-5 mx-auto mt-5 pt-5 text-center">
-					<h1>4<i class="fas fa-sad-cry">4</i></h1>
-					<h5 class="lead text-muted">Products Not Found</h5>
-					<p class="small text-muted">Please try with another category or query</p>
-				</div>
-			</div>
-
-			<?php endif;?>
+			
 		</div>
 		<div class="col-lg-3">
 			<div class="widget ">
@@ -47,4 +37,16 @@
 			</div>
 		</div>
 	</div>
+	<?php  else: ?>
+	
+<div class="">
+	<div class="container  mx-auto mt-5 pt-5 text-center">
+		<h1>4<i class="fas fa-sad-cry"></i>4</h1>
+		<h5 class="lead text-muted">Products Not Found</h5>
+		<p class="small text-muted">Please try with another category or query</p>
+	</div>
 </div>
+
+<?php endif;?>
+</div>
+

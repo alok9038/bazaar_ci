@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
     <script src="https://kit.fontawesome.com/24429d851b.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" ></script>
+
 </head>
 <style>
   .category .nav-item a{
@@ -25,7 +27,7 @@
    
     <form class="form-inline ml-lg-5">
       <div class="input-group">
-          <input class=" border search rounded-0" size="90" type="search" placeholder="what are you looking for?" aria-label="Search">
+          <input class=" border search rounded-0" size="80" type="search" placeholder="what are you looking for?" aria-label="Search">
           <div class="input-group-append">
               <button class="btn bg-white border border-left-0 rounded-0 " type="submit"><i class="fa fa-search"></i></button>
           </div>
@@ -39,7 +41,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link active" href="#" tabindex="-1" aria-disabled="true"><i class="fas fa-shopping-cart"></i> <sup><span class="badge badge-danger badge-pill">0</span></sup></a>
+  <a class="nav-link active" href="<?= base_url('user/cart'); ?>" tabindex="-1" aria-disabled="true"><i class="fas fa-shopping-cart"></i> <sup><span class="badge badge-danger badge-pill"><?php if($this->session->userdata("admin")): ?><?= count($items); ?><?php else: ?>0<?php endif; ?></span></sup></a>
       </li>
       <?php if($this->session->userdata("admin")): ?>
       <li class="nav-item ">
@@ -65,7 +67,7 @@
   </div>
 </div>
 </nav>
-<nav class="navbar navbar-expand-lg mb-5 sticky-top navbar-light  shadow-sm  py-0 bg-white" style="top:65px!important;">
+<nav class="navbar navbar-expand-lg mb-5 navbar-light  shadow-sm  py-0 bg-white" style="top:65px!important;">
     <div class="container">
         <ul class="nav-pills nav navbar-nav category" id="category">
             <li class="nav-item rounded-0"><a href="<?= base_url('home'); ?>" class="nav-link rounded-0" style="font-weight:500;font-size:14px;">Home</a></li>
@@ -75,4 +77,22 @@
         </ul>
     </div>
 </nav>
+
+
+
+
+
+<?php if($msg = $this->session->flashdata('error')): ?>
+  <div class="container p-0 mb-0">
+  <div class="row">
+  <div class="col-lg-5 mx-auto">
+  <div class="alert alert-danger mt-5 rounded-0 shadow-sm border-0"><?= $msg; ?></div>
+  </div>
+</div>
+  </div>
+<?php endif; ?>
+
+
+
+
 

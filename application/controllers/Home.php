@@ -7,7 +7,10 @@ class Home extends CI_Controller{
         parent::__construct();
         $id = $this->session->userdata('admin');
         $this->data['category'] = $this->work->calling('category');
-        $this->data['user'] = $this->db->where(["contact="=>$id])->get("account")->row();
+        $user = $this->data['user'] = $this->db->where(["contact="=>$id])->get("account")->row();
+        if($id):
+        $this->data['items'] = $this->work->joinData('item','order_item','order_item.item_id = item.id',['user_id'=>$user->id]);
+        endif;
         
     }
     

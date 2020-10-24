@@ -18,7 +18,8 @@ class Auth extends CI_Controller{
                 redirect("home/index");
 
             }else{
-                echo "<script>alert('something went wrong')</script>";
+                $this->session->set_flashdata('error', 'Contact and Password is incorrect');
+                redirect('auth/login'); 
             }
         }
 
