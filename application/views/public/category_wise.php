@@ -15,7 +15,7 @@
 						style="height:150px;">
 				</div>
 				<div class="col-lg-8 p-3">
-					<h4 class="text-truncate h5 text-muted"><a href="<?= base_url('home/product/'.$item->id);?>"
+					<h4 class="text-truncate h5 text-muted"><a href="<?= base_url('product/').$item->item_slug; ?>"
 							class="stretched-link post-link" id="post-link"><?= $item->title; ?></a></h4>
 					<p class="text-muted mt-n2 small">by <?= $item->brand; ?></p>
 					<span class="d-flex">

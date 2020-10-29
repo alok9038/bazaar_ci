@@ -110,6 +110,7 @@
                         else{
                             $this->db->insert("order_item",$cond);
                         }
+                        $this->session->set_flashdata('error', 'Item successfully added to cart');
                         redirect('user/cart');
                     }
                     else{
@@ -118,8 +119,9 @@
                         echo $last_id = $this->db->insert_id();
     
                         $orderitem = $this->db->insert("order_item",["ordered"=>false,"user_id"=>$user->id,"order_id"=>$last_id,'item_id'=>$item_id]);
-    
+                        $this->session->set_flashdata('error', 'Item successfully added to cart');
                     }
+                    $this->session->set_flashdata('error', 'Item successfully added to cart');
                     redirect("user/cart");
                 }
             }

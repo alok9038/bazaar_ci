@@ -43,6 +43,9 @@ class Admin extends CI_Controller{
     }
     
     public function addProduct(){
+
+        $slug = url_title($this->input->post('title'), 'dash', TRUE);
+
         $this->form_validation->set_rules('title','title','required');
         $this->form_validation->set_rules('price','price','required');
         $this->form_validation->set_rules('discount_price','discount_price','required');
@@ -69,6 +72,7 @@ class Admin extends CI_Controller{
                      'discount_price' => $_POST['discount_price'],
                      'brand' => $_POST['brand'],
                      'model' => $_POST['model'],
+                     'item_slug' =>$slug,
                      'category' => $_POST['category'],
                      'image' => $_FILES['image']['name'],
                      'description' => $_POST['description'],

@@ -1,4 +1,4 @@
-<div class="container-fluid mt-sm-5 p-0">
+<!-- <div class="container-fluid mt-sm-5 p-0">
 	<img src="<?= base_url('assets/banner.jpg'); ?>" class="banner w-100 img-fluid" alt="">
 	<div class="card-caption container px-5">
 		<div class="row mt-5 pt-5 mt-lg-0 pt-lg-0">
@@ -44,8 +44,9 @@
 		</div>
 	</div>
 </div>
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+ -->
+<div class="container-fluid pt-4 p-0">
+<div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -75,6 +76,7 @@
 		<span class="sr-only">Next</span>
 	</a>
 </div>
+</div>
 
 <div class="container mt-5 bg-white rounded-0 p-4 mb-5">
 	<?php if(!empty($product)): ?>
@@ -84,12 +86,11 @@
 		<?php foreach($product as $item): ?>
 		<div class="col-lg-3 col-sm-6 col-6 mb-4">
 			<div class="card shadow-sm post border-0">
-				<div class="card-img bg-light post-item border-bottom border-muted">
-					<img src="<?= base_url('assets/upload/'.$item->image); ?>" class=" post-item-image w-100"
-						alt="<?= $item->title; ?>">
-				</div>
+				
 				<div class="card-body">
-					<a href="<?= base_url('home/product/').$item->id; ?>" class="stretched-link text-info" title="<?= $item->title; ?>">
+					<img src="<?= base_url('assets/upload/'.$item->image); ?>" class=" img-fluid w-100"
+						alt="<?= $item->title; ?>" style="height:250px;">
+					<a href="<?= base_url('product/').$item->item_slug; ?>" class="stretched-link text-info" title="<?= $item->title; ?>">
 						<h2 class="lead text-truncate"><?= $item->title; ?></h2>
 					</a>
 					<span class="small"><?= $item->category; ?> </span><span class="badge badge-success ml-4">4.1</span>

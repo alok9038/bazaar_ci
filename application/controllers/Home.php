@@ -38,11 +38,17 @@ class Home extends CI_Controller{
         $this->commanView($this->data);
     }
     
-     public function product($id){
+     public function product($slug){
         //$this->data['product] = $this->db->where(["id"=$id])->get("item")->row();
-        $this->data['product'] = $this->work->calling('item',array("id"=>$id));
+        $this->data['product'] = $this->work->calling('item',array("item_slug"=>$slug));
         $this->load->view('public/include/header',$this->data);
         $this->load->view('public/product', $this->data);
+        $this->load->view('public/include/footer');
+    }
+
+    public function asdf(){
+        $this->load->view('public/include/header',$this->data);
+        $this->load->view('public/asdf');
         $this->load->view('public/include/footer');
     }
     

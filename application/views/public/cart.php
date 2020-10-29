@@ -59,7 +59,7 @@
                 <div class="clearfix"></div>
 			</div>
 		</div>
-		<div class="col-lg-4" style="position:fixed; right:50px;">
+		<div class="col-lg-4" style="position:fixed; right:50px;z-index:-1;">
             <div class="card mt-5 rounded-0 shadow-sm ">
                 <div class="card-header h5 bg-white text-muted">Order Summary</div>
                 <div class="card-body">
@@ -85,7 +85,7 @@
         <div class="container pt-5">
 <div class="row mt-5">
     <div class="col-lg-5 mx-auto">
-    <h5 class="text-center">your cart is empty</h5>
+    <h5 class="text-center">Your cart is empty</h5>
     </div>
 </div>
 </div>
