@@ -11,6 +11,7 @@ class Home extends CI_Controller{
         if($id):
         $this->data['items'] = $this->work->joinData('item','order_item','order_item.item_id = item.id',['user_id'=>$user->id]);
         endif;
+        $this->db->cache_on();
         
     }
     
@@ -22,8 +23,9 @@ class Home extends CI_Controller{
     }
     
     public function index(){
-        $this->data['product'] = $this->work->calling('item');
+        $this->data['product'] = $this->work->joinData('category','item','item.category = category.id');
         $this->commanView($this->data);
+        $this->db->cache_on();
         
     }
     
@@ -47,9 +49,13 @@ class Home extends CI_Controller{
     }
 
     public function asdf(){
-        $this->load->view('public/include/header',$this->data);
-        $this->load->view('public/asdf');
-        $this->load->view('public/include/footer');
+        //$this->load->view('public/include/header',$this->data);
+        //$this->load->view('public/asdf');
+        //$this->load->view('public/include/footer');
+        
+        $ip =     $this->input->ip_address();
+        ;
+echo $ip;
     }
     
 }

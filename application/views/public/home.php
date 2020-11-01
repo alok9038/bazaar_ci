@@ -93,11 +93,12 @@
 					<a href="<?= base_url('product/').$item->item_slug; ?>" class="stretched-link text-info" title="<?= $item->title; ?>">
 						<h2 class="lead text-truncate"><?= $item->title; ?></h2>
 					</a>
-					<span class="small"><?= $item->category; ?> </span><span class="badge badge-success ml-4">4.1</span>
-					<h2 class="h6 d-flex mt-3"><del class="small"><sup>₹</sup> <?= $item->price; ?></del> <span
-							class="ml-3 text-danger">
+					<span class="small text-muted"><?= $item->cat_title; ?> </span><span class="badge badge-success ml-4">4.1</span>
+					<h2 class="h6 d-flex mt-3"><del class="h6" style="font-weight:400;">₹ <?= $item->price; ?></del> 
+						<span class="ml-3 text-danger">
 							<h5>₹ <?= $item->discount_price; ?></h5>
-						</span></h2>
+						</span>
+					</h2>
 				</div>
 			</div>
 		</div>

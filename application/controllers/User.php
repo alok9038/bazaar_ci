@@ -13,8 +13,10 @@
                         
             $log = $this->session->userdata('admin');
             $user = $this->db->where('contact',$log)->get('account')->row();
-            $data['items'] = $this->work->joinData('item','order_item','order_item.item_id = item.id',['user_id'=>$user->id]);
             $data['user'] = $this->db->where(["contact="=>$log])->get("account")->row();
+            // $order = $this->db->get_where('orders',['user_id'=>$user->id,'ordered'=>false])->row();
+            $data['order'] = $this->work->joinData('orders','coupon','orders.coupon = coupon.id',['user_id'=>$user->id]);
+            $data['items'] = $this->work->joinData('item','order_item','order_item.item_id = item.id',['user_id'=>$user->id]);
             $data['category'] = $this->work->calling('category');
             $this->load->view('public/include/header', $data);
             $this->load->view('public/cart');
@@ -24,6 +26,7 @@
         public function remove_item($id =null){
             if($id!=null){
                 $this->work->deleteData('order_item',['id'=>$id]);
+                $this->session->set_flashdata('msg', 'Item successfully removed');
                 redirect('user/cart');
             }
         }
@@ -81,6 +84,7 @@
                         }
                         else{
                             $this->work->deleteData('order_item',$cond);
+                            $this->session->set_flashdata('msg', 'Item successfully removed');
                             
                         }
                         redirect('user/cart');
@@ -109,9 +113,8 @@
                         }
                         else{
                             $this->db->insert("order_item",$cond);
+                            $this->session->set_flashdata('msg', 'Item successfully added to cart');
                         }
-                        $this->session->set_flashdata('error', 'Item successfully added to cart');
-                        redirect('user/cart');
                     }
                     else{
                         //if not exist
@@ -119,11 +122,43 @@
                         echo $last_id = $this->db->insert_id();
     
                         $orderitem = $this->db->insert("order_item",["ordered"=>false,"user_id"=>$user->id,"order_id"=>$last_id,'item_id'=>$item_id]);
-                        $this->session->set_flashdata('error', 'Item successfully added to cart');
+                        $this->session->set_flashdata('msg', 'Item successfully added to cart');
                     }
-                    $this->session->set_flashdata('error', 'Item successfully added to cart');
                     redirect("user/cart");
                 }
             }
         }
+
+        public function coupon($id =null){
+            $log = $this->session->userdata('admin');
+            $user = $this->db->where('contact',$log)->get('account')->row();
+
+            if($id!=null){
+                $order = $this->db->get_where('orders',['user_id'=>$user->id,'ordered'=>false])->row();
+                $this->db->update('orders',['coupon'=>0],['order_id'=>$id]); 
+                $this->session->set_flashdata('msg', 'Coupon successfully removed');
+                    
+            }else{
+
+    
+            $this->form_validation->set_rules('code','code','required');
+
+            if($this->form_validation->run()){
+                if($this->work->checkData('coupon',['code'=> $_POST['code']])){
+                    $coupon = $this->db->get_where('coupon',['code'=> $_POST['code']])->row();
+                    $order = $this->db->get_where('orders',['user_id'=>$user->id,'ordered'=>false])->row();
+                    $this->db->update('orders',['coupon'=>$coupon->id],['order_id'=>$order->order_id]);
+                    $this->session->set_flashdata('msg', 'Coupon successfully added');
+                }
+                else{
+                    $this->session->set_flashdata('error', 'Coupon not valid');
+                    
+                }
+                redirect('user/cart');
+    
+            }
+        }
+                redirect('user/cart');
+        }
+    
     }

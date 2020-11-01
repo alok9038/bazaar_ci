@@ -22,7 +22,7 @@
 
 </style>
 
-<div class="container mt-5">
+<div class="container my-5">
 <?php if(!empty($items)): ?>
 	<div class="row mb-5 ">
 		<div class="col-lg-8">
@@ -59,33 +59,62 @@
                 <div class="clearfix"></div>
 			</div>
 		</div>
-		<div class="col-lg-4" style="position:fixed; right:50px;z-index:-1;">
+		<div class="col-lg-4 mb-5" style="position:absolute; right:50px;">
             <div class="card mt-5 rounded-0 shadow-sm ">
                 <div class="card-header h5 bg-white text-muted">Order Summary</div>
                 <div class="card-body">
                     <table class="table-md table table-borderless">
                         <tr>
-                <td>Subtotal (<?php if(count($items) == 1 ): ?><?= count($items); ?> item) <?php else: ?><?= count($items); ?> items )<?php endif; ?></td>
+                            <td>Subtotal (<?php if(count($items) == 1 ): ?><?= count($items); ?> item) <?php else: ?><?= count($items); ?> items )<?php endif; ?></td>
                             <td>₹ <?php $sum= 0;   foreach($items as $i):   $sum+= $i->discount_price*$i->qty;  endforeach; echo $sum; ?></td>
                         </tr>
+                        <tr>
+                            <?php if(!empty($order)):?>
+                            <td class="">Coupon Discount</td>
+                            <td class="">- ₹<?= $order[0]->amount;?></td>
+                            <?php endif;?>
+                        </tr>
                         <tr class="">
-                        <td class="pb-5">Shipping</td>
-                        <td class="text-success pb-5">Free</td>
+                            <td >Shipping</td>
+                            <td class="text-success pb-5">Free</td>
                         </tr>
                         <tr class="border-dotted">
-                            <th >Total amount</th>
-                            <th>₹<?php $sum= 0;   foreach($items as $i):   $sum+= $i->discount_price*$i->qty;  endforeach; echo $sum; ?></th>
+                            <th class="">Total amount</th>
+                            <?php if(!empty($order)):?>
+                            <th class="">₹<?php $sum= 0;   foreach($items as $i):   $sum+= $i->discount_price*$i->qty-$order[0]->amount;  endforeach; echo $sum; ?></th>
+                            <?php else: ?>
+                            <th class="">₹<?php $sum= 0;   foreach($items as $i):   $sum+= $i->discount_price*$i->qty;  endforeach; echo $sum; ?></th>
+                            <?php endif;?>
                         </tr>
                     </table>
+                    <form action="<?= base_url('user/coupon'); ?>" class="mt-3" method="post">
+                        <div class="input-group">
+                            <input type="search" name="code" id="" placeholder="Enter coupon code" class="form-control rounded-0">
+                            <div class="input-group-append">
+                                <input type="submit" value="submit" class="btn btn-info rounded-0">
+                            </div>
+                        </div>
+                    </form>
+                    <?php if(!empty($order)):?>
+           
+                        <h6 class="mt-3 text-success"><a href="<?= base_url('user/coupon/'.$order[0]->order_id); ?>" class="text-danger"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                            </svg></a>  <strong><?= $order[0]->code;?></strong> <small>Applied</small>
+                        </h6>
+                    <?php endif;?>
+                    <a href="" class="btn btn-success rounded-0  btn-block shadow mt-4">Checkout</a>
                 </div>            
             </div>
         </div>
+        
 	</div>
     <?php else: ?>
         <div class="container pt-5">
 <div class="row mt-5">
     <div class="col-lg-5 mx-auto">
-    <h5 class="text-center">Your cart is empty</h5>
+    <h6 class="text-center"><img src="<?= base_url('assets/image/cart.png'); ?>" style="width:60%" alt=""></h6>
+    <h5 class="text-center font-weight-light">Your cart is empty!</h5>
+    <p class="text-center small">Add items to it now.</p>
     </div>
 </div>
 </div>

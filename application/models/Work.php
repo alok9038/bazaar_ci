@@ -30,10 +30,15 @@ class Work extends CI_Model{
         return $data;
     }
 
-    public function joinData($table, $table2, $cond, $cond1){
-        $this->db->join($table2, $cond);
-        $this->db->where($cond1);
-        $data = $this->db->select('*')->from($table)->get()->result();
+    public function joinData($table, $table2, $cond, $cond1=null){
+        if($cond1 =null){
+            $this->db->join($table2, $cond);
+            $this->db->where($cond1);
+            $data = $this->db->select('*')->from($table)->get()->result();
+        }else{
+            $this->db->join($table2, $cond);
+            $data = $this->db->select('*')->from($table)->get()->result();
+        }
         return $data;
     }
     

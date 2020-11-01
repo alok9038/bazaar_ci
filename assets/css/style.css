@@ -27,6 +27,7 @@
 .post-item{
     overflow: hidden;
     height: 250px;
+    
 }
 .card-body a:hover{
     text-decoration: none;

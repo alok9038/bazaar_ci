@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Bazaar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
     <script src="https://kit.fontawesome.com/24429d851b.js" crossorigin="anonymous"></script>
@@ -25,7 +26,7 @@
 </style>
 <body class="">
     
-    <nav class="navbar navbar-expand-lg p-0 fixed-top  navbar-light " style="background-color:#feee00;">
+    <nav class="navbar navbar-expand-lg p-0 fixed-top   navbar-light " style="background-color:#feee00;">
   <div class="container">
     <a class="navbar-brand" href="<?= base_url('home'); ?>"><img src="<?= base_url('assets/logo.png'); ?>" class="img-fluid" style="height:55px;" alt=""></a>
    
@@ -81,7 +82,7 @@
         <ul class="nav-pills nav navbar-nav category" id="category">
             <li class="nav-item rounded-0"><a href="<?= base_url('home'); ?>" class="nav-link rounded-0" style="font-weight:500;font-size:14px;">Home</a></li>
             <?php foreach($category as $cat): ?>
-            <li class="nav-item rounded-0 "><a href="<?= base_url('category/'.$cat->id); ?>" class="nav-link rounded-0 text-capitalize " style="font-weight:500; font-size:14px;"><?= $cat->title; ?></a></li>
+            <li class="nav-item rounded-0 "><a href="<?= base_url('category/'.$cat->id); ?>" class="nav-link rounded-0 text-capitalize " style="font-weight:500; font-size:14px;"><?= $cat->cat_title; ?></a></li>
             <?php endforeach; ?>
         </ul>
     </div>
@@ -92,7 +93,18 @@
 
 
 <?php if($msg = $this->session->flashdata('error')): ?>
-  <div class="toast ml-auto rounded-0 border-0" role="alert" data-delay="2000" data-autohide="true" style="position: absolute; top: 130px; right: 20px; min-width:300px;min-heigth:100px;">
+  <div class="toast ml-auto rounded-0 border-0" role="alert" data-delay="2000" data-autohide="true" style="position: absolute; top: 110px; right: 20px; min-width:300px;min-heigth:100px;">
+        <div class="toast-body bg-danger" style='background:#00c851c4;'>
+
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <p class="text-light"><?= $msg; ?></p>
+         </div>
+    </div>
+<?php endif; ?>
+<?php if($msg = $this->session->flashdata('msg')): ?>
+  <div class="toast ml-auto rounded-0 border-0" role="alert" data-delay="2000" data-autohide="true" style="position: absolute; top: 110px; right: 20px; min-width:300px;min-heigth:100px;">
         <div class="toast-body" style='background:#00c851c4;'>
 
             <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
